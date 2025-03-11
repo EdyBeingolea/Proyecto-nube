@@ -1,0 +1,18 @@
+spring:
+  datasource:
+    driver-class-name: oracle.jdbc.OracleDriver
+    username: system
+    url: jdbc:oracle:thin:@localhost:1521:XE
+    password: ora1234
+  application:
+    name: ValleGrandeMaster
+  jpa:
+    database-platform: org.hibernate.dialect.OracleDialect
+    properties:
+      hibernate:
+        format_sql: 'true'
+    hibernate:
+      ddl-auto: update
+    show-sql: 'true'
+server:
+  port: '8086'
