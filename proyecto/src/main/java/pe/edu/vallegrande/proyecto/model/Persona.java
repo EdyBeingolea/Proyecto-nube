@@ -25,4 +25,5 @@ public class Persona {
     private String apellido;
     private String dni;
     private int edad;
+    private String estado;
 }
