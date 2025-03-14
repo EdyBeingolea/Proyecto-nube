@@ -18,8 +18,9 @@ import pe.edu.vallegrande.proyecto.services.PersonaService;
 
 @RestController
 @RequestMapping("/persona")
-@CrossOrigin("*")
 @RequiredArgsConstructor
+@CrossOrigin("*")
+
 public class PersonaController {
 
     private final PersonaService serviice;
