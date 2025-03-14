@@ -1,4 +1,7 @@
 spring:
+  web:
+    cors:
+      allowed-origins: "*"
   datasource:
     driver-class-name: oracle.jdbc.OracleDriver
     username: system
@@ -10,9 +13,14 @@ spring:
     database-platform: org.hibernate.dialect.OracleDialect
     properties:
       hibernate:
-        format_sql: 'true'
+        format_sql: "true"
     hibernate:
       ddl-auto: update
-    show-sql: 'true'
+    show-sql: "true"
 server:
-  port: '8086'
+  port: "8086"
+springdoc:
+  api-docs:
+    path: /v3/api-docs
+  swagger-ui:
+    path: /swagger-ui.html

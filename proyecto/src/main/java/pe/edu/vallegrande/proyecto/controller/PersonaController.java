@@ -3,8 +3,12 @@ package pe.edu.vallegrande.proyecto.controller;
 import java.util.List;
 import java.util.Optional;
 
+import org.apache.catalina.connector.Response;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -17,9 +21,9 @@ import pe.edu.vallegrande.proyecto.model.Persona;
 import pe.edu.vallegrande.proyecto.services.PersonaService;
 
 @RestController
-@RequestMapping("/persona")
+@RequestMapping("/")
 @RequiredArgsConstructor
-@CrossOrigin("*")
+@CrossOrigin()
 
 public class PersonaController {
 
@@ -31,7 +35,7 @@ public class PersonaController {
     }
 
     @GetMapping("/Personas/{id}")
-    public Optional<Persona> getPersonaId(@RequestParam Long id){
+    public ResponseEntity<?> getPersonaId(@PathVariable Long id){
         return serviice.getPersonaId(id);
     }
 
@@ -41,14 +45,15 @@ public class PersonaController {
     }
 
     @PutMapping("/Personas/{id}")
-    public Optional<Persona> update(@RequestBody Persona persona, @RequestParam Long id){
+    public Optional<Persona> update(@RequestBody Persona persona, @PathVariable Long id){
         return serviice.updatePersona(persona, id);
     }
 
-    @PutMapping("/Personas/{id}")
-    public Optional<Persona> delete(@RequestParam Long id){
+    @DeleteMapping("/Personas/{id}")
+    public ResponseEntity<?> delete( @PathVariable Long id){
         return serviice.deletePersona(id);
     }
+   
 
 
 
